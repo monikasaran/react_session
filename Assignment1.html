@@ -1,0 +1,58 @@
+
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+    
+</head>
+
+    <body>
+        <header>Using ES 6</header>
+
+          <script type="module">
+            class Polygon{
+           constructor(s,n){
+            this.s=s;
+            this.n=n;
+            this.area=0;
+           } 
+            announce()
+            {           
+                this.area=this.s*this.n;                
+                return this.area;
+                
+            }       
+           }
+           let p=new Polygon(300,400);
+            p.announce();
+            console.log("The area of the polygon: "+p.area)
+            //---------------------------------------------
+            class Square extends Polygon {
+            constructor(s)
+            {
+            super(s,s);             
+            }
+            }
+
+            let s = new Square(5);
+            s.announce();
+            console.log('The area of this square: ' + s.area);
+            //---------------------------------------
+            class Rectangle extends Polygon {
+            constructor(s,n)
+            {
+                super(s,n);
+            }
+            }
+
+            let r = new Rectangle(50, 60);
+            r.announce();
+        
+            console.log("The area of the rectangle: "+r.area)
+        </script>
+    </body>
+</html>

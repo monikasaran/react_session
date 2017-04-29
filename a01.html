@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+</head>
+
+    <body>
+        <header>Using ES 6</header>
+
+        
+
+        <!-- Load Traceur Compiler -->
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+
+        <script type="module">
+
+
+            if(true)    {
+// “let” keyword limits the variables accessibility upto a block, statement or expression.                
+                    let lx = 12;
+                    console.log("lx: " + lx); 
+
+                    var vx2 = 13;
+                    console.log("vx2 (inside): " +  vx2);
+                }
+
+                //console.log(lx); //ReferenceError: x is not defined.
+                console.log("vx2 (outside): " + vx2);
+
+
+            { let a = 2, b = 3, c;
+              console.log("a, b: ", a, b, c); 
+            }
+
+
+
+
+
+        </script>
+    </body>
+</html>
