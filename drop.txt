@@ -1,0 +1,9 @@
+https://www.dropbox.com/s/6xz21lc1ucyv33c/react-flux-appA.zip?dl=0
+
+
+npm install
+
+
+npm start
+
+go to dist dir  -> index.html : run from a webserver.

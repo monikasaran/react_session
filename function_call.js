@@ -15,6 +15,4 @@ var MyButton = React.createClass({
     }
 });
 
-ReactDOM.render(
-    <MyButton />,   document.getElementById('content')
-);
+ReactDOM.render(<MyButton />,   document.getElementById('content'));

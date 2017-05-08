@@ -1,0 +1,99 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+</head>
+
+    <body>
+        <header>Using ES 6</header>
+
+        
+
+        <!-- Load Traceur Compiler -->
+    <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+    <script type="module">
+
+        let  videos = [
+
+            'http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_h264.mov',
+            'http://media.w3.org/2010/05/sintel/trailer.mp4',
+            'http://media.w3.org/2010/05/video/movie_300.mp4',
+        ];
+
+        class MyApp extends React.Component{
+            constructor(){
+                super();
+                this.state = { videoId: 0 };
+                this.showVideo = this.showVideo.bind(this);
+                this.reloadVideo = this.reloadVideo.bind(this);
+
+                this.load = this.load.bind(this);
+                this.play = this.play.bind(this);
+                this.pause = this.pause.bind(this);
+                this.unmute = this.unmute.bind(this);
+                this.mute = this.mute.bind(this);
+            }
+
+
+            showVideo(id) {
+                this.setState({
+                    videoId: id
+                }, this.reloadVideo);
+            }
+
+            reloadVideo() {
+                // When changing a HTML5 video, need to reload it.
+                this.refs.myvideo.load();
+                this.refs.myvideo.play();
+            }
+
+
+            load() { this.refs.myvideo.load(); }
+            play() {this.refs.myvideo.play(); }
+            pause() {this.refs.myvideo.pause();}
+            unmute() {this.refs.myvideo.muted = false ; }
+            mute() {this.refs.myvideo.muted = true ; }
+
+
+            render() {
+                return (
+                    <div>
+                            <h3> React and  Video </h3>
+                            <video controls autoPlay  ref="myvideo">
+                                <source src={videos[this.state.videoId]} type="video/mp4" />
+                            </video>
+
+
+                            <div>
+                                    <h5 >Change the Movie: </h5>
+                                    <button  onClick={this.showVideo.bind(this, 0)}> Vid 1</button>
+                                    <button  onClick={this.showVideo.bind(this, 1)}>Vid 2</button>
+                                    <button  onClick={this.showVideo.bind(this, 2)}>Vid 3</button>
+
+                                <div>
+                                    <h5>Video Ops: </h5>
+                                    <button onClick={this.play}>play</button>
+                                    <button onClick={this.pause}>pause</button>
+                                    <button onClick={this.mute}>mute</button>
+                                    <button onClick={this.unmute}>unmute</button>
+                                </div>
+                            </div>
+
+                    </div>
+                );
+            }
+        }
+
+
+        ReactDOM.render(
+            <MyApp />,
+            document.getElementById('content')
+        );
+
+        </script>
+    </body>
+</html>
+
